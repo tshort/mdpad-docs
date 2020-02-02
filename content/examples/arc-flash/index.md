@@ -1,6 +1,5 @@
 ---
 title: Arc Flash in a Padmounted Switch
-linkTitle: Arc flash
 ---
 
 
@@ -40,12 +39,13 @@ and Padmounted Equipment," *IEEE Transactions on Industry Applications*,
 vol. 48, no. 1, pp. 245-253, Jan.-Feb. 2012.
 [Approved version](//distributionhandbook.com/papers/ieee_repc_arc_flash_tshort_meblen_2011_IAS_submission.pdf)
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <script src="/js/mdpad.js"></script>
 <script src="//unpkg.com/mithril/mithril.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/3.0.2/highcharts.js"></script>
+<script src="https://code.highcharts.com/8.0.0/highcharts.js"></script>
 
 <script>
 
@@ -67,7 +67,7 @@ function bselect({title, mdpad, options, selected}={}) {
 function mdpad_init() {
     var layout =
       m(".row",
-        m(".col-md-3",
+        m(".col-md-4",
           m("br"),
           m("br"),
           m("form.form",
@@ -78,11 +78,10 @@ function mdpad_init() {
             binput({ title:"Safety multiplier", mdpad:"k", step:0.1, value:1.15 }),
             bselect({ title:"Plotting extras", mdpad:"graphextras", options: ["Vary working distance", "Vary clothing", "None",] }),
             )),
-        m(".col-md-1"),
         m(".col-md-8",
           m("h3", "Results"),
           m("#results"),
-          m("#plot")))
+          m("#plot", {style:"max-width:500px"})))
     m.render(document.querySelector("#mdpad"), layout);
 }
 
@@ -95,10 +94,29 @@ findcals = function(I, t, d, k) {
 findduration = function(E, I, d, k) {
     return pow(E * pow(d, 2.1) / (k * 3547 * pow(I, 1.5)), 1/1.35);
 }
-
-var plotinfo = { chart: { type: "line", width: 500, height: 500, spacingRight: 20 },
+plotOptions: {
+    line: {
+        animation: false
+    }
+}
+var plotinfo = { chart: { type: "line", height: "130%", spacingRight: 20 },
   title: { text: "Time-current curve" },
-  plotOptions: { series: { marker: { enabled: false } } },
+  plotOptions: { series: { marker: { enabled: false } }, 
+                 line: { animation: false } },
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500,
+      },
+      chartOptions: {
+        legend: {
+          align: 'center',
+          verticalAlign: 'bottom',
+          layout: 'horizontal',
+        }
+      }
+    }]
+  },                 
   xAxis: 
    { type: "logarithmic",
      min: 1,
@@ -154,8 +172,7 @@ function mdpad_update() {
     } else {
         plotinfo.series = [{name: clothing + " cals at " + D + "\"", data: series1}]
     }
-    $("#plot").highcharts(plotinfo)
-
+    Highcharts.chart("plot", plotinfo)
 }
 
 </script>

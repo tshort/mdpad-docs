@@ -1,0 +1,10 @@
+<div class="form-group"><label class="col-sm-7 col-form-label">{{ .Get "label" }}</label>
+  <div class="col-sm-4">
+    <input class="form-control" 
+           {{ with .Get "mdpad" }} mdpad="{{.}}"{{ end }}
+           {{ with .Get "min" }} min="{{.}}"{{ end }}
+           {{ with .Get "step" }} step="{{.}}"{{ end }}
+           value={{ default "0" (index .Params "value") }}
+           type={{ default "number" (index .Params "type") }}>
+  </div>
+</div>

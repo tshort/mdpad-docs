@@ -1,25 +1,25 @@
 ---
-title: Examples of content rendering with various JavaScript libraries
-linkTitle: JavaScript libraries
+title: Rendering Content
 ---
 
-## Basic generation of forms
-
-Many different JavaScript libraries can be used to render input or output
-content. Here is an example of using several common libraries to create
-input elements:
+Many different JavaScript libraries can be used to render input or output content. 
+Here is an example of using several common libraries to create input elements:
 
 #### Mithril
 <div id="mithrilx"></div>
+<br/>
 
 #### Preact
 <div id="preactx"></div>
+<br/>
 
 #### React
 <div id="reactx"></div>
+<br/>
 
 #### Vue
 <div id="vuex"></div>
+<br/>
 
 <br/>
 
@@ -110,18 +110,27 @@ Here's the code to create that form:
                 label.control-label Duct spacing, in
                 input.form-control#ductSpacing mdpad="ductSpacing" type="number" step="1" min="0" value="7"
             .col-md-4
-              .form-group
-                .checkbox
-                  label Jumper shield at work site
-                  input#jumpershield mdpad="jumpershield" type="checkbox" checked=false
-              .form-group
-                .checkbox
-                  label Connect phases together
-                  input#jumperphase mdpad="jumperphase" type="checkbox" checked=false
+              .form-check
+                  input.form-check-input#jumpershield mdpad="jumpershield" type="checkbox" checked=false
+                  label.form-check-label Jumper shield at work site
+              .form-check
+                  input.form-check-input#jumperphase mdpad="jumperphase" type="checkbox" checked=false
+                  label.form-check-label Connect phases together
             `;
     document.getElementById("emblemx").innerHTML = Emblem.compile(Handlebars, emblem_content)(window);
 ```
 
+## Shortcodes
+
+{{< input label="Numeric input A" min="0" value="10" step="5" mdpad="A" >}}
+{{< input label="Numeric input B" min="0" value="30" mdpad="B" >}}
+{{< input label="Text input C" type="text" value="hello" mdpad="C" >}}
+{{< select label="Select input D" mdpad="C" selected="Apple" >}}
+    {{< options "Apple" "Orange" "Banana" >}}
+{{< /select >}}
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <script src="/js/mdpad.js"></script>
 <script crossorigin src="https://unpkg.com/mithril/mithril.js"></script>
@@ -200,17 +209,19 @@ function mdpad_init() {
                 label.control-label Duct spacing, in
                 input.form-control#ductSpacing mdpad="ductSpacing" type="number" step="1" min="0" value="7"
             .col-md-4
-              .form-group
-                .checkbox
-                  label Jumper shield at work site
-                  input#jumpershield mdpad="jumpershield" type="checkbox" checked=false
-              .form-group
-                .checkbox
-                  label Connect phases together
-                  input#jumperphase mdpad="jumperphase" type="checkbox" checked=false
+              .form-check
+                  input.form-check-input#jumpershield mdpad="jumpershield" type="checkbox" checked=false
+                  label.form-check-label Jumper shield at work site
+              .form-check
+                  input.form-check-input#jumperphase mdpad="jumperphase" type="checkbox" checked=false
+                  label.form-check-label Connect phases together
             `;
     document.getElementById("emblemx").innerHTML = Emblem.compile(Handlebars, emblem_content)(window);
 
+}
+
+// define this just to watch the URL change
+function mdpad_update() {
 }
 
 </script>

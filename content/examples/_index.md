@@ -1,5 +1,7 @@
 ---
-title:  "mdpad examples"
-linkTitle: "Examples"
+title:  "Examples"
 weight: 80
 ---
+
+Here are examples.
+

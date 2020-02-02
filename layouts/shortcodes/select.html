@@ -1,0 +1,7 @@
+<div class="form-group">
+    {{ with .Get "label" }} <label class="col-sm-7 col-form-label">{{.}}</label> {{ end }}
+    <select class="form-control" {{ with .Get "mdpad" }} mdpad="{{.}}"{{ end }} >
+    {{ .Inner }}
+    </select>
+  </div>
+</div>

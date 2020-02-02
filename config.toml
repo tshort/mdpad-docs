@@ -1,4 +1,55 @@
-theme = "ananke"
+title = "mdpad"
+theme = "hugo-whisper-theme"
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+# Controls how many words are printed in the content summary on the docs homepage.
+# See https://gohugo.io/content-management/summaries/
+# summaryLength = 30
 
 [markup.goldmark.renderer]
-unsafe= true
+unsafe = true
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Details"
+    url = "/details/"
+    weight = 2
+
+[[menu.main]]
+    name = "Examples"
+    url = "/examples/"
+    weight = 3
+
+[[menu.main]]
+    name = "Github"
+    url = "https://github.com/tshort/mdpad.js"
+    weight = 4
+
+[params]
+  google_analytics_id=""
+  homepage_button_link = '/examples'
+  homepage_button_text = 'Examples'
+  homepage_intro = 'One-file web apps.'
+  homepage_image = '/images/terminal.gif'
+
+  ## You can enable to add anchor links to header elements
+  # enable_anchor_link = true
+
+  [params.homepage_meta_tags]
+    meta_description = "Hugo Whisper is a documentation theme built with Hugo."
+    meta_og_title = "Hugo Whisper Theme"
+    meta_og_type = "website"
+    meta_og_url = "https://hugo-whisper.netlify.com"
+    meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
+    meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
+
+  [params.logo]
+      mobile = "/images/logo-mobile.svg"
+      standard  = "/images/logo.svg"
