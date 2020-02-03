@@ -37,6 +37,8 @@ mdpad = function() {
 var use_url = true;
 var replace_url = false;
 
+var variable_defaults = {};
+
 function enable_url() {
     use_url = true;
 } 
@@ -66,17 +68,26 @@ ready(function() {
 function init() {
     if ("mdpad_init" in window)
         mdpad_init();
+    calculate_forms();
+    variable_defaults = Object.assign({}, mdpad);
 }
 
 function update_forms() {
     if (use_url) {
         var url = new URL(window.location);
         var params = new URLSearchParams(url.search); 
+        // restore defaults
+        Object.keys(variable_defaults).forEach(function(key) { 
+            var el = document.querySelector("[mdpad=" + key + "]");
+            if (el)
+                set_element_value(el, variable_defaults[key]);
+        });
+        // fill in values from the URL
         url.searchParams.forEach(function(value, key) { 
             var el = document.querySelector("[mdpad=" + key + "]");
             if (el)
                 set_element_value(el, value);
-        }); 
+        });
     }
 }
 

@@ -96,7 +96,7 @@ With a fast static-site generator like Hugo, the web page will
 update almost immediately after you save a page.
 Modern text editors will display the JavaScript portion of the Markdown
 file with nice syntax highlighting to make code editing nice. 
-While *mdpad" is touted as a "one-file" approach, you can of course 
+While *mdpad* is touted as a "one-file" approach, you can of course 
 keep your JavaScript in a separate file and load it with a script tag.
 
 ### Related work
@@ -111,6 +111,7 @@ keep your JavaScript in a separate file and load it with a script tag.
 To do:
 - walk through of a page
 - links to source for the page
+- fix url -- needs to store defaults -- back button doesnt work right after adding new option
 
 <script src="/js/mdpad.js"></script>
 
