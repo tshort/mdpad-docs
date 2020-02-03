@@ -1,7 +1,8 @@
 <div class="form-group">
-    {{ with .Get "label" }} <label class="col-sm-7 col-form-label">{{.}}</label> {{ end }}
+  {{ with .Get "label" }} <label class="col-sm-7 col-form-label">{{.}}</label> {{ end }}
+  <div class="col-sm-4">
     <select class="form-control" {{ with .Get "mdpad" }} mdpad="{{.}}"{{ end }} >
-    {{ .Inner }}
+      {{ .Inner }}
     </select>
   </div>
 </div>

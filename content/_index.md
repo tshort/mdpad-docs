@@ -1,7 +1,10 @@
 ---
-title: 'mdpad: one-file web apps'
+title: 'mdpad'
 date: 2020-02-02T14:42:29.608Z
+type: 'front'
 ---
+
+### One-file web apps
 
 *mdpad* is a JavaScript package that makes it easier to write one-file, 
 one-page web apps in Markdown. It works well with static-site 
@@ -89,25 +92,23 @@ Both of these functions are optional. Because *mdpad* doesn't do much
 without these defined, it is safe to include site-wide as part of a
 theme.
 
-With a fast static-site generator like Hugo, the web page will be 
+With a fast static-site generator like Hugo, the web page will
 update almost immediately after you save a page.
 Modern text editors will display the JavaScript portion of the Markdown
-file with nice syntax highlighted to make code editing nice. While this
-approach is touted as a "one-file" approach, you can of course keep your
-JavaScript in a separate file and load it with a script tag.
+file with nice syntax highlighting to make code editing nice. 
+While *mdpad" is touted as a "one-file" approach, you can of course 
+keep your JavaScript in a separate file and load it with a script tag.
 
-## Related work
+### Related work
  
-* [mdpad (original)](http://tshort.github.io/mdpad/) -- A clunkier version
-  of one-file apps (but quite usable).
+* [mdpad (original)](http://tshort.github.io/mdpad/) -- A more complex, 
+  clunkier version of one-file apps (but quite usable).
 
 * [Iodide](https://alpha.iodide.io/) -- Literate scientific computing and 
   communication for the web.
 
 
 To do:
-- description of 3 ways to do forms: hard-code html, JS code generation, 
-  and shortcodes
 - walk through of a page
 - links to source for the page
 

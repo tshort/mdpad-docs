@@ -120,18 +120,6 @@ Here's the code to create that form:
     document.getElementById("emblemx").innerHTML = Emblem.compile(Handlebars, emblem_content)(window);
 ```
 
-## Shortcodes
-
-{{< input label="Numeric input A" min="0" value="10" step="5" mdpad="A" >}}
-{{< input label="Numeric input B" min="0" value="30" mdpad="B" >}}
-{{< input label="Text input C" type="text" value="hello" mdpad="C" >}}
-{{< select label="Select input D" mdpad="C" selected="Apple" >}}
-    {{< options "Apple" "Orange" "Banana" >}}
-{{< /select >}}
-
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 <script src="/js/mdpad.js"></script>
 <script crossorigin src="https://unpkg.com/mithril/mithril.js"></script>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>

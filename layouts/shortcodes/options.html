@@ -1,2 +1,3 @@
-<option>Apple</option>
-<option>Orange</option>
+{{ range .Params }}
+  <option>{{ . }}</option>
+{{ end }}
