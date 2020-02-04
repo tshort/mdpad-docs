@@ -45,7 +45,7 @@ vol. 48, no. 1, pp. 245-253, Jan.-Feb. 2012.
 <script src="//unpkg.com/mithril/mithril.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
-<script src="https://code.highcharts.com/8.0.0/highcharts.js"></script>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
 
 <script>
 
@@ -81,7 +81,7 @@ function mdpad_init() {
         m(".col-md-8",
           m("h3", "Results"),
           m("#results"),
-          m("#plot", {style:"max-width:500px"})))
+          m("#plot", {style:"max-width:700px"})))
     m.render(document.querySelector("#mdpad"), layout);
 }
 
@@ -94,51 +94,23 @@ findcals = function(I, t, d, k) {
 findduration = function(E, I, d, k) {
     return pow(E * pow(d, 2.1) / (k * 3547 * pow(I, 1.5)), 1/1.35);
 }
-plotOptions: {
-    line: {
-        animation: false
-    }
-}
-var plotinfo = { chart: { type: "line", height: "130%", spacingRight: 20 },
-  title: { text: "Time-current curve" },
-  plotOptions: { series: { marker: { enabled: false } }, 
-                 line: { animation: false } },
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500,
-      },
-      chartOptions: {
-        legend: {
-          align: 'center',
-          verticalAlign: 'bottom',
-          layout: 'horizontal',
-        }
-      }
-    }]
-  },                 
-  xAxis: 
-   { type: "logarithmic",
-     min: 1,
-     max: 100,
-     endOnTick: true,
-     tickInterval: 1,
-     minorTickInterval: 0.1,
-     gridLineWidth: 1,
-     title: { text: "Current, kA" } },
-  yAxis: 
-   { type: "logarithmic",
-     min: 0.02,
-     max: 10,
-     tickInterval: 1,
-     minorTickInterval: 0.1,
-     title: { text: "Time, sec" } },
-  legend: 
-   { align: "right",
-     verticalAlign: "middle",
-     layout: "vertical",
-     borderWidth: 0 } }
 
+var layout = {
+  width: 400,
+  height: 600,
+  xaxis: {
+    type: 'log',
+    title: "Current, kA",
+    scaleanchor: "y", 
+  },
+  yaxis: {
+    type: 'log',
+    title: "Time, sec",
+  },
+  showlegend: true,
+  legend: {"x" : 0.6, "y" : 1},
+  margin: { t: 20, },
+};
 
 function mdpad_update() {
     var {I, t, D, k, clothing, graphextras} = mdpad
@@ -150,29 +122,26 @@ function mdpad_update() {
           m("b", cals.toFixed(1), " cal/cm", m("sup", 2)), m("br"),
           "Duration limit for the given current and clothing = ",
           m("b", duration.toFixed(2) + " secs")))
-    currents = numeric.pow(10,numeric.linspace(0,2,40))
+    currents = numeric.pow(10,numeric.linspace(0,1.5,40))
     durations1 = _.map(currents, function(I) {return findduration(clothing, I, D, k)})
-    series1 = _.zip(currents,durations1)
+    var data1 = { x: currents, y: durations1, type: "scatter", name: clothing + " cals at " + D + "\"" }
     if (graphextras == "Vary clothing") {
         durations0 = _.map(currents, function(I) {return findduration(clothing * 2, I, D, k)})
-        series0 = _.zip(currents,durations0)
         durations2 = _.map(currents, function(I) {return findduration(clothing / 2, I, D, k)})
-        series2 = _.zip(currents,durations2)
-        plotinfo.series = [{name: clothing*2 + " cals at " + D + "\"", data: series0},
-                           {name: clothing   + " cals at " + D + "\"", data: series1},
-                           {name: clothing/2 + " cals at " + D + "\"", data: series2}]
+        var data0 = { x: currents, y: durations0, type: "scatter", name: clothing*2 + " cals at " + D + "\"" }
+        var data2 = { x: currents, y: durations2, type: "scatter", name: clothing/2 + " cals at " + D + "\"" }
+        var data = [ data0, data1, data2 ];
     } else if (graphextras == "Vary working distance") {
         durations0 = _.map(currents, function(I) {return findduration(clothing, I, D * 2, k)})
-        series0 = _.zip(currents,durations0)
         durations2 = _.map(currents, function(I) {return findduration(clothing, I, D / 2, k)})
-        series2 = _.zip(currents,durations2)
-        plotinfo.series = [{name: clothing + " cals at " + D*2 + "\"", data: series0},
-                           {name: clothing + " cals at " + D + "\"", data: series1},
-                           {name: clothing + " cals at " + D/2 + "\"", data: series2}]
+        var data0 = { x: currents, y: durations0, type: "scatter", name: clothing + " cals at " + D*2 + "\"" }
+        var data2 = { x: currents, y: durations2, type: "scatter", name: clothing + " cals at " + D/2 + "\"" }
+        var data = [ data0, data1, data2 ];
     } else {
-        plotinfo.series = [{name: clothing + " cals at " + D + "\"", data: series1}]
+        var data = [ data1 ];
     }
-    Highcharts.chart("plot", plotinfo)
+    Plotly.newPlot("plot", data, layout, {responsive: true});
+     
 }
 
 </script>

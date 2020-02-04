@@ -99,6 +99,9 @@ file with nice syntax highlighting to make code editing nice.
 While *mdpad* is touted as a "one-file" approach, you can of course 
 keep your JavaScript in a separate file and load it with a script tag.
 
+Note that *mdpad* is targeted at Markdown files, but it can be used with HTML,
+AsciiDoc, or other content formats.
+
 ### Related work
  
 * [mdpad (original)](http://tshort.github.io/mdpad/) -- A more complex, 
@@ -109,9 +112,8 @@ keep your JavaScript in a separate file and load it with a script tag.
 
 
 To do:
-- walk through of a page
 - links to source for the page
-- fix url -- needs to store defaults -- back button doesnt work right after adding new option
+
 
 <script src="/js/mdpad.js"></script>
 
