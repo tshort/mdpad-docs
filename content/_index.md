@@ -118,8 +118,6 @@ This is `root/static/js` for Hugo.
   communication for the web.
 
 
-To do:
-- links to source for the page
 
 
 <script src="/js/mdpad-0.1.0.min.js"></script>
