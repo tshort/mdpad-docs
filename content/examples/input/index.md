@@ -7,18 +7,22 @@ Input forms are tricky because the HTML can get complicated.
 Here is an example of using several common libraries to create input elements:
 
 #### Mithril
+
 <div id="mithrilx"></div>
 <br/>
 
 #### Preact
+
 <div id="preactx"></div>
 <br/>
 
 #### React
+
 <div id="reactx"></div>
 <br/>
 
 #### Vue
+
 <div id="vuex"></div>
 <br/>
 
