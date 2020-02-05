@@ -26,6 +26,8 @@ Key features include:
 
 **[examples](examples)**
 
+**[code for the examples](https://github.com/tshort/mdpad-docs/tree/master/content/examples)**
+
 This mode of operation drastically simplifies the interface for 
 the page author. It does not depend on a particular JavaScript 
 library. The author can accomplish a lot without having deep 
