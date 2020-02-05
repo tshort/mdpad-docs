@@ -29,7 +29,7 @@ unsafe = true
 
 [[menu.main]]
     name = "Github"
-    url = "https://github.com/tshort/mdpad.js"
+    url = "https://github.com/tshort/mdpad-js"
     weight = 4
 
 [params]

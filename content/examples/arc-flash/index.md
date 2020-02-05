@@ -41,7 +41,7 @@ vol. 48, no. 1, pp. 245-253, Jan.-Feb. 2012.
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<script src="/js/mdpad.js"></script>
+<script src="/js/mdpad-0.1.0.min.js"></script>
 <script src="//unpkg.com/mithril/mithril.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
@@ -57,7 +57,7 @@ function binput({title = "", mdpad = "", type = "number", step = 1, min = 0, val
 }
 
 function bselect({title, mdpad, options, selected}={}) {
-    var options = options.map(x => m("option", (x == selected) ? {selected: "selected"} : {}, x));
+    var options = options.map(x => m("option", (x == selected) ? {selected: "selected"} : {}, x))
     return m(".form-group",
              m("label.control-label.col-sm-12", title),
              m(".col-sm-12", 
@@ -82,17 +82,17 @@ function mdpad_init() {
           m("h3", "Results"),
           m("#results"),
           m("#plot", {style:"max-width:700px"})))
-    m.render(document.querySelector("#mdpad"), layout);
+    m.render(document.querySelector("#mdpad"), layout)
 }
 
 var pow = Math.pow
 
-findcals = function(I, t, d, k) {
-    return k * 3547 * pow(I, 1.5) * pow(t, 1.35) / pow(d, 2.1);
+function findcals(I, t, d, k) {
+    return k * 3547 * pow(I, 1.5) * pow(t, 1.35) / pow(d, 2.1)
 }
 
-findduration = function(E, I, d, k) {
-    return pow(E * pow(d, 2.1) / (k * 3547 * pow(I, 1.5)), 1/1.35);
+function findduration(E, I, d, k) {
+    return pow(E * pow(d, 2.1) / (k * 3547 * pow(I, 1.5)), 1/1.35)
 }
 
 var layout = {
@@ -110,37 +110,37 @@ var layout = {
   showlegend: true,
   legend: {"x" : 0.6, "y" : 1},
   margin: { t: 20, },
-};
+}
 
 function mdpad_update() {
     var {I, t, D, k, clothing, graphextras} = mdpad
-    cals = findcals(I, t, D, k)
-    duration = findduration(clothing, I, D, k)
+    var cals = findcals(I, t, D, k)
+    var duration = findduration(clothing, I, D, k)
     
     m.render(document.querySelector("#results"), 
         m("div", "Incident energy for the given current and duration = ",
           m("b", cals.toFixed(1), " cal/cm", m("sup", 2)), m("br"),
           "Duration limit for the given current and clothing = ",
           m("b", duration.toFixed(2) + " secs")))
-    currents = numeric.pow(10,numeric.linspace(0,1.5,40))
-    durations1 = _.map(currents, function(I) {return findduration(clothing, I, D, k)})
+    var currents = numeric.pow(10,numeric.linspace(0,1.5,40))
+    var durations1 = _.map(currents, function(I) {return findduration(clothing, I, D, k)})
     var data1 = { x: currents, y: durations1, type: "scatter", name: clothing + " cals at " + D + "\"" }
     if (graphextras == "Vary clothing") {
-        durations0 = _.map(currents, function(I) {return findduration(clothing * 2, I, D, k)})
-        durations2 = _.map(currents, function(I) {return findduration(clothing / 2, I, D, k)})
+        var durations0 = _.map(currents, function(I) {return findduration(clothing * 2, I, D, k)})
+        var durations2 = _.map(currents, function(I) {return findduration(clothing / 2, I, D, k)})
         var data0 = { x: currents, y: durations0, type: "scatter", name: clothing*2 + " cals at " + D + "\"" }
         var data2 = { x: currents, y: durations2, type: "scatter", name: clothing/2 + " cals at " + D + "\"" }
-        var data = [ data0, data1, data2 ];
+        var data = [ data0, data1, data2 ]
     } else if (graphextras == "Vary working distance") {
-        durations0 = _.map(currents, function(I) {return findduration(clothing, I, D * 2, k)})
-        durations2 = _.map(currents, function(I) {return findduration(clothing, I, D / 2, k)})
+        var durations0 = _.map(currents, function(I) {return findduration(clothing, I, D * 2, k)})
+        var durations2 = _.map(currents, function(I) {return findduration(clothing, I, D / 2, k)})
         var data0 = { x: currents, y: durations0, type: "scatter", name: clothing + " cals at " + D*2 + "\"" }
         var data2 = { x: currents, y: durations2, type: "scatter", name: clothing + " cals at " + D/2 + "\"" }
-        var data = [ data0, data1, data2 ];
+        var data = [ data0, data1, data2 ]
     } else {
-        var data = [ data1 ];
+        var data = [ data1 ]
     }
-    Plotly.newPlot("plot", data, layout, {responsive: true});
+    Plotly.newPlot("plot", data, layout, {responsive: true})
      
 }
 

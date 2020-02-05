@@ -51,7 +51,7 @@ As you change these inputs, you'll see the URL in the address bar change
 with the input values. The JavaScript part of this page is:
 
 ```html
-<script src="/js/mdpad.js"></script>
+<script src="/js/mdpad-0.1.0.min.js"></script>
 
 <script>
 
@@ -102,6 +102,11 @@ keep your JavaScript in a separate file and load it with a script tag.
 Note that *mdpad* is targeted at Markdown files, but it can be used with HTML,
 AsciiDoc, or other content formats.
 
+### Installation
+ 
+Copy `mdpad-version.min.js` to the JavaScript folder for your static-site generator.
+This is `root/static/js` for Hugo.
+
 ### Related work
  
 * [mdpad (original)](http://tshort.github.io/mdpad/) -- A more complex, 
@@ -115,7 +120,7 @@ To do:
 - links to source for the page
 
 
-<script src="/js/mdpad.js"></script>
+<script src="/js/mdpad-0.1.0.min.js"></script>
 
 <script>
 
