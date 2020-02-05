@@ -1,6 +1,6 @@
 ---
 title: 'mdpad'
-date: 2020-02-02T14:42:29.608Z
+date: 2020-02-05
 type: 'front'
 ---
 
@@ -28,6 +28,12 @@ Key features include:
 
 **[code for the examples](https://github.com/tshort/mdpad-docs/tree/master/content/examples)**
 
+Edit live Markdown files with JSBin:
+
+* [Simple example](https://jsbin.com/payoruq/edit?html,output)
+
+* [More complex example](https://jsbin.com/goxoxay/edit?html,output)
+
 This mode of operation drastically simplifies the interface for 
 the page author. It does not depend on a particular JavaScript 
 library. The author can accomplish a lot without having deep 
@@ -53,7 +59,7 @@ As you change these inputs, you'll see the URL in the address bar change
 with the input values. The JavaScript part of this page is:
 
 ```html
-<script src="/js/mdpad-0.1.0.min.js"></script>
+<script src="/js/mdpad.min.js"></script>
 
 <script>
 
@@ -106,8 +112,14 @@ AsciiDoc, or other content formats.
 
 ### Installation
  
-Copy `mdpad-version.min.js` to the JavaScript folder for your static-site generator.
+Copy `mdpad.min.js` to the JavaScript folder for your static-site generator.
 This is `root/static/js` for Hugo.
+
+You can also directly use a CDN version of *mdpad* as in the following:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/mdpad-js@0.2.0/dist/mdpad.min.js" crossorigin="anonymous"></script>  
+```
 
 ### Related work
  
@@ -120,7 +132,7 @@ This is `root/static/js` for Hugo.
 
 
 
-<script src="/js/mdpad-0.1.0.min.js"></script>
+<script src="/js/mdpad.min.js"></script>
 
 <script>
 

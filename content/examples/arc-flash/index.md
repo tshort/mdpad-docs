@@ -41,7 +41,7 @@ vol. 48, no. 1, pp. 245-253, Jan.-Feb. 2012.
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<script src="/js/mdpad-0.1.0.min.js"></script>
+<script src="/js/mdpad.min.js"></script>
 <script src="//unpkg.com/mithril/mithril.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>

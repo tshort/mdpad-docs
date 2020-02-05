@@ -125,7 +125,7 @@ Here's the code to create that form:
     document.getElementById("emblemx").innerHTML = Emblem.compile(Handlebars, emblem_content)(window);
 ```
 
-<script src="/js/mdpad-0.1.0.min.js"></script>
+<script src="/js/mdpad.min.js"></script>
 <script crossorigin src="https://unpkg.com/mithril/mithril.js"></script>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>

@@ -20,7 +20,7 @@ used as placeholders.
 These placeholders will then be filled in by `mdpad_init()` or `mdpad_update()`. 
 The page's JavaScript often goes at the end. 
 There are normally `<script>` tags to load in `mdpad.js` or
-`mdpad-0.1.0.min.js` along with other JavaScript packages. 
+`mdpad.min.js` along with other JavaScript packages. 
 These can be included in the template instead.
 
 Here is a minimal example:
@@ -36,7 +36,7 @@ Here is some output:
 
 <div id="output"></div>
 
-<script url="/js/mdpad-0.1.0.min.js"></script>
+<script url="/js/mdpad.min.js"></script>
 
 <script>
 function mdpad_init() {

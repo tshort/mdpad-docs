@@ -30,7 +30,7 @@ The HTML to generate these inputs with shortcodes looks like:
 The input is reasonable. Note that the `selected="Orange"` bit doesn't work.
 That was beyond my Hugo shortcode-coding ability.
 
-<script src="/js/mdpad-0.1.0.min.js"></script>
+<script src="/js/mdpad.min.js"></script>
 
 <script>
 
