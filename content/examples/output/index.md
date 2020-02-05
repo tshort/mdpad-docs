@@ -8,7 +8,7 @@ Many different JavaScript libraries can be used to render input or output conten
 
 ## Results
 
-Here is an example of some output we can create:
+Here are examples of different types of output. These are in embedded in expandable Bootstrap cards.
 
 <div id="mdpad"></div>
 
