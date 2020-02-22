@@ -17,7 +17,8 @@ Key features include:
   any of the form elements.
 
 * **Variables from form inputs**--When a page recalculates, it 
-  collects form inputs that are available to the page author.
+  collects form inputs that are available to the page author. 
+  The min and max limits on number inputs are also enforced.
 
 * **Variables update the URL**--When a user changes any input,
   the URL updates to reflect the change. This gives the user
