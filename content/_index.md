@@ -1,6 +1,7 @@
 ---
-title: 'mdpad'
-date: 2020-02-05
+title: 'mdpad: one-file web apps'
+description: 'mdpad is a JavaScript package that makes it easier to write one-file, one-page web apps in Markdown. It works well with static-site generators like Jekyll or Hugo.'
+date: 2020-02-17
 type: 'front'
 ---
 
