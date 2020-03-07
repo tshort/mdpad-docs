@@ -1,7 +1,7 @@
 ---
 title: Arc Flash in a Padmounted Switch
 description: Models the arc flash incident energy based on tests of PMH padmounted switches
-images: ['padmount1.png']
+images: ['/examples/arc-flash/padmount1.png']
 ---
 
 
