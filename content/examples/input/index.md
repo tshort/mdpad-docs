@@ -1,5 +1,6 @@
 ---
 title: Rendering Input
+description: Examples of input generated with Mithril, Preact, React, and Vue
 ---
 
 Many different JavaScript libraries can be used to render input or output content. 

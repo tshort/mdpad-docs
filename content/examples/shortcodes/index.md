@@ -1,5 +1,6 @@
 ---
 title: Shortcodes
+description: Examples of input elements created with Hugo shortcodes
 ---
 
 Another option for form entry is to use template features of a static-

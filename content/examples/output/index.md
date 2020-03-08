@@ -1,5 +1,6 @@
 ---
 title: Rendering Output
+description: Examples of output, including a table, a Vega-Lite plot, and a Plotly plot
 ---
 
 This page highlights different types of output. 
