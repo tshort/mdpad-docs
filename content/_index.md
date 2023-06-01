@@ -101,7 +101,8 @@ The page author provides two JavaScript functions:
 
 Both of these functions are optional. Because *mdpad* doesn't do much
 without these defined, it is safe to include site-wide as part of a
-theme.
+theme. These functions can also be defined `async`. This is useful
+to `await` loading of things like WebAssembly files.
 
 With a fast static-site generator like Hugo, the web page will
 update almost immediately after you save a page.
@@ -121,7 +122,7 @@ This is `root/static/js` for Hugo.
 You can also directly use a CDN version of *mdpad* as in the following:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/mdpad-js@0.2.0/dist/mdpad.min.js" crossorigin="anonymous"></script>  
+<script src="https://cdn.jsdelivr.net/npm/mdpad-js@1.0.0/dist/mdpad.min.js" crossorigin="anonymous"></script>  
 ```
 
 ### Related work

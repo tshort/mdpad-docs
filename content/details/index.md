@@ -59,6 +59,12 @@ function mdpad_update() {
   * `mdpad.api.disable_url()` -- disable this feature.
   * `mdpad.api.enable_replace_url()` -- don't keep history of changes.
   * `mdpad.api.disable_replace_url()` -- keep history of changes. (default)
+  * `mdpad.api.update_defaults(x)` -- update variable defaults for `mdpad` based on `x`.
+  * `mdpad.api.update_forms()` -- update all forms based on defaults
+
+`mdpad` also houses the variables created from forms with `mdpad`-labeled inputs.
+ Defaults for variables are taken from initial values of inputs, but this
+ can be changed with `mdpad.api.update_defaults(x)`.
 
 `mdpad` also houses the variables created from forms with `mdpad`-labeled inputs.
 
